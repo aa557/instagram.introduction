@@ -1,0 +1,272 @@
+@charset "utf-8";
+/* animate */
+
+.animate {
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+}
+
+.animate.sr {
+    transform: translateX(+200px);
+}
+
+.animate.sl {
+    transform: translateX(-200px);
+}
+
+.animate.delay {
+    transition-delay: 0.5s;
+}
+
+.animate.delay-more {
+    transition-delay: 1s;
+}
+
+.animate.appear {
+    opacity: 1;
+    transform: none;
+}
+
+/* ------------------ */
+body {
+    margin: 0;
+
+}
+
+h1 {
+    margin: 0;
+    color: brown;
+    font-weight: normal;
+    /* 要素の文字を標準の太さで表示 */
+    grid-template-columns: 1fr;
+}
+
+a {
+    margin: 0;
+    background-color: green;
+    display: block;
+    text-decoration: none;
+    /* 下線をなくす */
+    width: 160px;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    /* カーソルが指になる */
+}
+
+/* header */
+header {
+    padding: 16px 0;
+    /* headerの下に余白 */
+}
+
+.container {
+    margin: 0 auto;
+    width: calc(100% - 60%);
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    /* 親要素に対して子要素を横並びにする */
+    justify-content: space-between;
+    /* 要素を均等に間隔を空けて配置する */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* main */
+.main-tagu {
+    background-color: antiquewhite;
+    padding-top: 64px;
+    /* 上に余白 */
+
+    display: flex;
+    align-items: center;
+    /* 縦位置を揃える */
+    justify-content: space-between;
+    gap: 20px;
+    /* テキストと画像の間隔 */
+}
+
+.main-tagu-1 {
+    padding: 0 0 0 15%;
+    text-align: center;
+}
+
+.main-tagu a {
+    margin: 64px 0 0 35%;
+}
+
+.main-tagu img {
+    margin: 0 20% 0 0;
+    max-width: 100%;
+    height: auto;
+    /* 画像が小さい画面で縮まらないようにする */
+}
+
+/* 特徴 */
+.tokutyou {
+    padding-top: 64px;
+    display: block;
+}
+
+.tokutyou h1 {
+    text-align: center;
+}
+
+.tokutyou h2 {
+    font-weight: normal;
+}
+
+.tokutyou section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f9f9f9;
+
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* 2番目・3番目に少し遅延をつける */
+.tokutyou section:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.tokutyou section:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ユーザーの声 */
+.yuz {
+    padding: 64px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.yuz section {
+    opacity: 0;
+    transform: translateY(80px);
+    /* ←最初もっと下から */
+}
+
+.yuz section.show {
+    opacity: 1;
+    transform: translateY(0);
+    animation: bounceIn 1.3s ease forwards;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(80px) scale(0.9);
+        /* ←ちょっと小さく */
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-40px) scale(1.05);
+        /* ←大きく跳ねる */
+    }
+
+    70% {
+        transform: translateY(20px) scale(0.97);
+        /* ←下に沈む */
+    }
+
+    85% {
+        transform: translateY(-10px) scale(1.02);
+        /* ←小さく跳ね返る */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        /* ←自然な位置に */
+    }
+}
+
+.yuz h1 {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.yuz1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* スマホは縦並び */
+    gap: 24px;
+}
+
+/* PC（768px以上）では横に3つ */
+@media (min-width: 768px) {
+    .yuz1 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.yuz1 section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* footerを下に配置 */
+}
+
+.yuz1 section p {
+    line-height: 1.6;
+}
+
+
+.yuz--aikon {
+    display: flex;
+    margin: 100px 0 0px;
+
+    align-items: center;
+    /* 縦位置を中央揃え */
+
+    gap: 10px;
+}
+
+
+
+
+
+
+
+.fin {
+    background-color: antiquewhite;
+    text-align: center;
+    padding: 70px;
+
+}
+
+.fin a {
+    margin: 50px 44% 0;
+}
+
+
+.fin2 p {
+    background-color: gray;
+    margin: 0;
+    text-align: center;
+    padding: 60px;
+    color: white;
+}
